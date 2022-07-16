@@ -24,11 +24,11 @@ function sidePanel:update(dt)
     end
     if mx > sidePanel.x2 - 7 and mx < sidePanel.x2 + 7 then
         local ind = self:getHoverIndex(2)
-        if ind > 0 then
+        if ind > 0 and myItems[ind] > 0 then
             hoverItemType = 2 -- Item
             hoverItemIndex = ind
             hoverItemId = myItems[ind]
-            --hoverItemSprite = coreData[myCores[ind]][8] -- Get the item sprite
+            hoverItemSprite = itemData[myItems[ind]][2] -- Get the item sprite
             d1 = "hovering " .. ind
         end
     end
@@ -59,12 +59,16 @@ function sidePanel:draw()
         if myCoresEquipped[i] then
             setColorFromString(myCoresEquipped[i])
         end
-        love.graphics.draw(sprites.ui.dice, sidePanel.x1, sidePanel.top + i*18, nil, nil, nil, sprites.ui.dice:getWidth()/2, sprites.ui.dice:getHeight()/2)
+        local spr = coreData[c][8]
+        love.graphics.draw(spr, sidePanel.x1, sidePanel.top + i*18, nil, nil, nil, spr:getWidth()/2, spr:getHeight()/2)
     end
 
     -- Draw items
     for i,c in ipairs(myItems) do
-        setWhite()
-        love.graphics.draw(sprites.ui.dice, sidePanel.x2, sidePanel.top + i*18, nil, nil, nil, sprites.ui.dice:getWidth()/2, sprites.ui.dice:getHeight()/2)
+        if c > 0 then
+            setWhite()
+            local spr = itemData[c][2]
+            love.graphics.draw(spr, sidePanel.x2, sidePanel.top + i*18, nil, nil, nil, spr:getWidth()/2, spr:getHeight()/2)
+        end
     end
 end

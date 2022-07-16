@@ -5,7 +5,7 @@ function mouse:leftClick()
 
         -- Check if the hovered tile contains a unit
         for _,u in ipairs(units) do
-            if u.coreId > 0 and u.tileX == hoverTileX and u.tileY == hoverTileY then
+            if u.coreId > 0 and u.tileX == hoverTileX and u.tileY == hoverTileY and heldItemId < 1 then
                 u.awaitingOrders = true
                 selectedUnitId = u.id
             end
@@ -42,7 +42,10 @@ function mouse:releaseLeft()
                         end
                         myCoresEquipped[heldItemIndex] = u.color
                     elseif heldItemType == 2 then
-                        -- apply Item
+                        if heldItemId == 1 then -- "wrench"
+                            u:applyWrench()
+                        end
+                        myItems[heldItemIndex] = -1
                     end
 
                 end

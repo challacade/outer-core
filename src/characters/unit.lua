@@ -20,6 +20,7 @@ function spawnUnit(id, tileX, tileY)
     unit.coreId = 0
     unit.animTimer1 = 0
     unit.animTimer2 = 0
+    unit.wrenchTimer = 0
 
     unit.offDir = vector(1,0)
     unit.offset = 0
@@ -56,6 +57,10 @@ function spawnUnit(id, tileX, tileY)
 
         if self.coreId == 0 then -- no core equipped
             return nil
+        end
+
+        if self.wrenchTimer > 0 then
+            self.wrenchTimer = self.wrenchTimer - dt
         end
 
         if self.state == 1 then
@@ -192,11 +197,19 @@ function spawnUnit(id, tileX, tileY)
     end
 
     function unit:malfunction()
+        if self.wrenchTimer > 0 then
+            self:aimedShot()
+            return nil
+        end
         self.state = 3
         self.animTimer1 = 0.5
         self.animTimer2 = 0.05
         self.offDir = self.dir:rotated(math.pi/2):normalized()
         self.offset = 0.6
+    end
+
+    function unit:applyWrench()
+        self.wrenchTimer = 15
     end
 
     table.insert(units, unit)
