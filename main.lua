@@ -40,6 +40,10 @@ function love.keypressed(key)
     if key == 'u' then
         spawnUnit(1, math.random(-5, 5), math.random(-3, 3))
     end
+
+    if key == 'e' then
+        spawnEnemy('skull', math.random(-5, 5), math.random(-3, 3))
+    end
 end
 
 function love.mousepressed(x, y, button)

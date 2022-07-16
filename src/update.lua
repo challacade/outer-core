@@ -25,7 +25,10 @@ function updateGame(dt)
     end
 
     projectiles:update(dt)
+    enemies:update(dt)
     units:update(dt)
+
+    manager:update(dt)
 
     cam:update(dt)
     

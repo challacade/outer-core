@@ -7,7 +7,10 @@ function requireAll()
 
     require("src/attacks/projectile")
 
+    require("src/characters/enemy")
     require("src/characters/unit")
+
+    require("src/levels/manager")
     
     require("src/utilities/cam")
     require("src/utilities/debug")
