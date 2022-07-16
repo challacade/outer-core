@@ -42,6 +42,14 @@ function spawnEnemy(type, tileX, tileY)
     function enemy:draw()
         setWhite()
         self.anim:draw(self.sprite, self.x, self.y, nil, nil, nil, 8, 8)
+
+        if self.health < self.maxHealth then
+            love.graphics.setLineWidth(0.25)
+            setColor(211, 48, 48)
+            love.graphics.rectangle('fill', self.x - 5, self.y - 10.5, (self.health / self.maxHealth) * 10, 1.8)
+            setWhite()
+            love.graphics.rectangle('line', self.x - 5, self.y - 10.5, 10, 1.8)
+        end
     end
 
     table.insert(enemies, enemy)
