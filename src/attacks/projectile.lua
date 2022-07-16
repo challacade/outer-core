@@ -9,7 +9,7 @@ function spawnProjectile(type, x, y, dir, color)
     projectile.rot = 1
     projectile.sprite = sprites.attacks.laser
     projectile.radius = 4
-    projectile.speed = 180
+    projectile.speed = 270
     projectile.power = 60
     projectile.timer = 5
     projectile.color = "white"

@@ -46,7 +46,11 @@ function spawnUnit(id, tileX, tileY)
         if self.state == 1 then
             self.rollTimer = self.rollTimer - dt
             if self.rollTimer < 0 then
-                self:rollAttack()
+                if #enemies > 0 then
+                    self:rollAttack()
+                else
+                    self:setActive()
+                end
             end
         end
 
@@ -93,8 +97,16 @@ function spawnUnit(id, tileX, tileY)
     function unit:aimedShot()
         local shotX = 0
         local shotY = 0
+        local tempDist = 999999
 
-        -- find nearest enemy
+        for _,e in ipairs(enemies) do
+            local dist = distanceBetween(e.x, e.y, self.x, self.y)
+            if dist < tempDist then
+                tempDist = dist
+                shotX = e.x
+                shotY = e.y
+            end
+        end
 
         self.dir = getFromToVector(self.x, self.y, shotX, shotY)
         self:matchRotation()
