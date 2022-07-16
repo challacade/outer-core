@@ -112,6 +112,10 @@ function dirToInt(dir)
     end
 end
 
+function setColor(r, g, b)
+    love.graphics.setColor(r/255, g/255, b/255)
+end
+
 -- 'startswith' courtesy of StackOverflow
 -- https://stackoverflow.com/questions/22831701/lua-read-beginning-of-a-string
 string.startswith = function(self, str) 

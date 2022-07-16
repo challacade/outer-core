@@ -20,15 +20,11 @@ function love.update(dt)
 end
 
 function love.draw()
-    --drawBeforeCamera()
+    drawBeforeCamera()
 
-    --cam:attach()
+    cam:attach()
         drawCamera()
-        if colliderToggle then
-            --world:draw()
-            --particleWorld:draw()
-        end
-    --cam:detach()
+    cam:detach()
 
     drawAfterCamera()
 

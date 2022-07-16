@@ -1,6 +1,6 @@
 function gameStart()
 
-    love.graphics.setBackgroundColor(0.3, 0.3, 0.3)
+    love.graphics.setBackgroundColor(93/255, 72/255, 97/255)
 
     -- Initialize all global variables for the game
     initGlobals()
@@ -51,11 +51,11 @@ function initGlobals()
     -- game state
     -- 0: main menu
     -- 1: gameplay
-    gamestate = 0
+    gamestate = 1
 end
 
 function setScale(input)
-    scale = (6 / 1200) * windowHeight
+    scale = (7.25 / 1200) * windowHeight
 
     if cam then
         cam:zoomTo(scale)
