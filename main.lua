@@ -41,6 +41,14 @@ function love.keypressed(key)
         spawnUnit(1, math.random(-5, 5), math.random(-3, 3))
     end
 
+    if key == 'i' then
+        spawnUnit(2, math.random(-5, 5), math.random(-3, 3))
+    end
+
+    if key == 'o' then
+        spawnUnit(3, math.random(-5, 5), math.random(-3, 3))
+    end
+
     if key == 'e' then
         spawnEnemy('skull', math.random(-5, 5), math.random(-3, 3))
     end

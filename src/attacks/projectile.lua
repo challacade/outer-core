@@ -10,6 +10,7 @@ function spawnProjectile(type, x, y, dir, color)
     projectile.sprite = sprites.attacks.laser
     projectile.radius = 4
     projectile.speed = 180
+    projectile.power = 60
     projectile.timer = 5
     projectile.color = "white"
     if color then projectile.color = color end
@@ -47,5 +48,15 @@ end
 function projectiles:draw()
     for _,p in ipairs(projectiles) do
         p:draw()
+    end
+end
+
+function removeDeadProjectiles()
+    local i = #projectiles
+    while i > 0 do
+        if projectiles[i].dead then
+            table.remove(projectiles, i)
+        end
+        i = i - 1
     end
 end

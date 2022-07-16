@@ -29,6 +29,9 @@ function updateGame(dt)
     units:update(dt)
 
     manager:update(dt)
+    
+    removeDeadEnemies()
+    removeDeadProjectiles()
 
     cam:update(dt)
     
