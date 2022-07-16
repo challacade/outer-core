@@ -24,12 +24,15 @@ function updateGame(dt)
         hoverTileY = -100
     end
 
+    d1 = hoverTileX
+    d2 = hoverTileY
+
     projectiles:update(dt)
     enemies:update(dt)
     units:update(dt)
 
     manager:update(dt)
-    
+
     removeDeadEnemies()
     removeDeadProjectiles()
 

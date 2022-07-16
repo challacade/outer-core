@@ -32,6 +32,13 @@ function spawnEnemy(type, tileX, tileY)
             end
         end
 
+        -- Check for guides (direction changes)
+        for _,g in ipairs(guides) do
+            if (8 + g.radius) > distanceBetween(g.x, g.y, self.x, self.y) then
+                self.dir = g.dir * self.speed
+            end
+        end
+
         if self.health <= 0 then
             self.dead = true
         end

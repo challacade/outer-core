@@ -10,6 +10,7 @@ function requireAll()
     require("src/characters/enemy")
     require("src/characters/unit")
 
+    require("src/levels/guide")
     require("src/levels/manager")
     
     require("src/utilities/cam")
