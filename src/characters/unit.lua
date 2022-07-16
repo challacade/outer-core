@@ -54,6 +54,7 @@ function spawnUnit(id, tileX, tileY)
 
     function unit:walkTo(newTileX, newTileY)
         self.awaitingOrders = false
+        selectedUnitId = -1
         self.destX = newTileX*16 + 8
         self.destY = newTileY*16 + 8
         self.destTileX = newTileX
