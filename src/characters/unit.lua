@@ -15,6 +15,7 @@ function spawnUnit(id, tileX, tileY)
     unit.color = "white"
     unit.rot = math.random(-3, 3)
     unit.moveSpeed = 60
+    unit.rollTimer = 0
     
     -- 0: Standby
     -- 1: Active
@@ -30,10 +31,27 @@ function spawnUnit(id, tileX, tileY)
         unit.color = "yellow"
     end
 
+    function unit:matchRotation()
+        self.rot = math.atan2(self.dir.y, self.dir.x)
+    end
+
+    function unit:setActive()
+        self.state = 1
+        self.rollTimer = 1 -- set to max roll time
+    end
+
     function unit:update(dt)
+
+        if self.state == 1 then
+            self.rollTimer = self.rollTimer - dt
+            if self.rollTimer < 0 then
+                self:rollAttack()
+            end
+        end
+
         if self.state == 2 then
             self.dir = getFromToVector(self.x, self.y, self.destX, self.destY) * self.moveSpeed
-            self.rot = math.atan2(self.dir.y, self.dir.x)
+            self:matchRotation()
             self.x = self.x + self.dir.x * dt
             self.y = self.y + self.dir.y * dt
 
@@ -42,7 +60,7 @@ function spawnUnit(id, tileX, tileY)
                 self.y = self.destY
                 self.tileX = self.destTileX
                 self.tileY = self.destTileY
-                self.state = 1
+                unit:setActive()
             end
         end
     end
@@ -60,6 +78,28 @@ function spawnUnit(id, tileX, tileY)
         self.destTileX = newTileX
         self.destTileY = newTileY
         self.state = 2
+    end
+
+    function unit:rollAttack()
+        self.state = 1.1
+        local result = math.random(1,6)
+        if result < 7 then
+            -- aimed shot
+            self:aimedShot()
+        end
+    end
+
+    function unit:aimedShot()
+        local shotX = 0
+        local shotY = 0
+
+        -- find nearest enemy
+
+        self.dir = getFromToVector(self.x, self.y, shotX, shotY)
+        self:matchRotation()
+        -- spawn bullet
+
+        self:setActive()
     end
 
     table.insert(units, unit)
