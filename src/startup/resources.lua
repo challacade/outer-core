@@ -9,6 +9,8 @@ sprites.characters.unit = love.graphics.newImage('sprites/characters/unit.png')
 sprites.characters.skull = love.graphics.newImage('sprites/characters/skull.png')
 sprites.attacks = {}
 sprites.attacks.laser = love.graphics.newImage('sprites/attacks/laser.png')
+sprites.effects = {}
+sprites.effects.enemyDestroy = love.graphics.newImage('sprites/effects/enemyDestroy.png')
 sprites.ui = {}
 sprites.ui.arrowHead = love.graphics.newImage('sprites/ui/arrowHead.png')
 

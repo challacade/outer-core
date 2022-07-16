@@ -12,6 +12,9 @@ function requireAll()
 
     require("src/levels/guide")
     require("src/levels/manager")
+
+    require("src/effects/particles/particle")
+    require("src/effects/particles/particleEvent")
     
     require("src/utilities/cam")
     require("src/utilities/debug")

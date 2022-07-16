@@ -41,6 +41,7 @@ function spawnEnemy(type, tileX, tileY)
 
         if self.health <= 0 then
             self.dead = true
+            particleEvent('enemyDestroy', self.x, self.y, arg)
         end
 
         self.anim:update(dt)

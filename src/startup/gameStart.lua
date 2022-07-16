@@ -23,6 +23,12 @@ function gameStart()
     anim8 = require("libraries/anim8/anim8")
     sti = require("libraries/Simple-Tiled-Implementation/sti")
 
+    -- this windfield world is only used for particles
+    local windfield = require("libraries/windfield")
+    world = windfield.newWorld(0, 250, false)
+    world:setQueryDebugDrawing(true)
+    world:addCollisionClass('Ignore', {ignores = {'Ignore'}})
+
     require("src/startup/require")
     requireAll()
 

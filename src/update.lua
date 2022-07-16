@@ -24,8 +24,8 @@ function updateGame(dt)
         hoverTileY = -100
     end
 
-    d1 = hoverTileX
-    d2 = hoverTileY
+    --d1 = hoverTileX
+    --d2 = hoverTileY
 
     projectiles:update(dt)
     enemies:update(dt)
@@ -37,5 +37,7 @@ function updateGame(dt)
     removeDeadProjectiles()
 
     cam:update(dt)
+    world:update(dt)
+    particles:update(dt)
     
 end

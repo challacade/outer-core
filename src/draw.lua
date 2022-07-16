@@ -41,6 +41,7 @@ function drawCamera()
     projectiles:draw()
     enemies:draw()
     units:draw()
+    particles:draw()
 
 end
 
