@@ -11,7 +11,7 @@ function drawCamera()
         --gameMap:drawLayer(gameMap.layers["Base"])
     --end
     local ww, wh = love.graphics.getDimensions()
-    local mapSprite = sprites.maps.test3
+    local mapSprite = sprites.maps.test4
     --love.graphics.draw(mapSprite, ww/2*scale, ww/2*scale, nil, nil, nil, mapSprite:getWidth()/2, mapSprite:getHeight()/2)
     love.graphics.draw(mapSprite, 8, 0, nil, nil, nil, mapSprite:getWidth()/2, mapSprite:getHeight()/2)
 
