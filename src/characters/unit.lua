@@ -101,7 +101,7 @@ function spawnUnit(id, tileX, tileY)
         if attackName == "aim" then
             self:aimedShot()
         elseif attackName == "around" then
-            self:setActive()
+            self:aroundShot()
         elseif attackName == "mal" then
             self:setActive()
         end
@@ -127,6 +127,20 @@ function spawnUnit(id, tileX, tileY)
         spawnProjectile('laser', self.x, self.y, self.dir, self.color)
 
         self:setActive()
+    end
+
+    function unit:aroundShot()
+        spawnProjectile('laser', self.x, self.y, vector(1, 0), self.color)
+        spawnProjectile('laser', self.x, self.y, vector(1, 1), self.color)
+        spawnProjectile('laser', self.x, self.y, vector(0, 1), self.color)
+        spawnProjectile('laser', self.x, self.y, vector(-1, 1), self.color)
+        spawnProjectile('laser', self.x, self.y, vector(-1, 0), self.color)
+        spawnProjectile('laser', self.x, self.y, vector(-1, -1), self.color)
+        spawnProjectile('laser', self.x, self.y, vector(0, -1), self.color)
+        spawnProjectile('laser', self.x, self.y, vector(1, -1), self.color)
+
+        local destRot = self.rot + math.pi*2
+        flux.to(self, 0.3, {rot = destRot}):ease("linear"):oncomplete(function() self:setActive() end)
     end
 
     table.insert(units, unit)
