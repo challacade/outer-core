@@ -18,6 +18,9 @@ function spawnUnit(id, tileX, tileY)
     unit.rollSpeed = 0.75
     unit.rollTimer = 0
     unit.coreId = 0
+
+    unit.offDir = vector(1,0)
+    unit.offset = 0
     
     -- 0: Standby
     -- 1: Active
@@ -81,7 +84,10 @@ function spawnUnit(id, tileX, tileY)
         else
             setDullColorFromString(self.color)
         end
-        love.graphics.draw(self.sprite, self.x, self.y, self.rot, nil, nil, self.sprite:getWidth()/2, self.sprite:getHeight()/2)
+
+        local offX = self.offDir.x * self.offset
+        local offY = self.offDir.y * self.offset
+        love.graphics.draw(self.sprite, self.x + offX, self.y + offY, self.rot, nil, nil, self.sprite:getWidth()/2, self.sprite:getHeight()/2)
     end
 
     function unit:walkTo(newTileX, newTileY)
@@ -125,8 +131,8 @@ function spawnUnit(id, tileX, tileY)
         self:matchRotation()
         
         spawnProjectile('laser', self.x, self.y, self.dir, self.color)
-
-        self:setActive()
+        unit:kickbackToActive()
+        --self:setActive()
     end
 
     function unit:aroundShot()
@@ -141,6 +147,19 @@ function spawnUnit(id, tileX, tileY)
 
         local destRot = self.rot + math.pi*2
         flux.to(self, 0.3, {rot = destRot}):ease("linear"):oncomplete(function() self:setActive() end)
+    end
+
+    function unit:kickbackToActive()
+        self.offDir = self.dir:rotated(math.pi)
+        flux.to(self, 0.07, {offset = 4}):ease("linear"):oncomplete(
+            function()
+                flux.to(self, 0.2, {offset = 0}):ease("linear"):oncomplete(
+                    function()
+                        self:setActive()
+                    end
+                )
+            end
+        )
     end
 
     table.insert(units, unit)
