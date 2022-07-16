@@ -32,6 +32,7 @@ function updateGame(dt)
     units:update(dt)
 
     manager:update(dt)
+    sidePanel:update(dt)
 
     removeDeadEnemies()
     removeDeadProjectiles()

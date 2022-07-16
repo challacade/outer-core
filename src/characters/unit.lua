@@ -47,6 +47,7 @@ function spawnUnit(id, tileX, tileY)
     unit:matchRotation()
 
     function unit:setActive()
+        if self.state == 2 then return end
         self.state = 1
         self.rollTimer = self.rollSpeed
     end
@@ -79,6 +80,7 @@ function spawnUnit(id, tileX, tileY)
                 self.y = self.destY
                 self.tileX = self.destTileX
                 self.tileY = self.destTileY
+                self.state = 1 -- need to manually set for walking
                 unit:setActive()
             end
         end

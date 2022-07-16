@@ -15,6 +15,8 @@ sprites.effects.stars = love.graphics.newImage('sprites/effects/stars.png')
 sprites.effects.stars2 = love.graphics.newImage('sprites/effects/stars2.png')
 sprites.ui = {}
 sprites.ui.arrowHead = love.graphics.newImage('sprites/ui/arrowHead.png')
+sprites.ui.sidePanel = love.graphics.newImage('sprites/ui/sidePanel.png')
+sprites.ui.dice = love.graphics.newImage('sprites/ui/dice.png')
 
 fonts = {}
 fonts.debug = love.graphics.newFont("fonts/vt323/VT323-Regular.ttf", 15*scale)

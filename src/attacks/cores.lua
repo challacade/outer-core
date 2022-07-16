@@ -7,4 +7,4 @@ coreData = {
     },
 }
 
-
+myCores = {1, 1, 1}

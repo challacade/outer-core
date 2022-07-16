@@ -45,6 +45,8 @@ function drawCamera()
     units:draw()
     particles:draw()
 
+    sidePanel:draw()
+
 end
 
 function drawAfterCamera()

@@ -61,6 +61,14 @@ function initGlobals()
     hoverTileX = -1
     hoverTileY = -1
     selectedUnitId = -1
+
+    heldItemType = -1
+    heldItemId = -1
+    heldItemSprite = nil
+
+    hoverItemType = -1
+    hoverItemId = -1
+    hoverItemSprite = nil
 end
 
 function setScale(input)

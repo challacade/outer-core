@@ -32,7 +32,7 @@ function love.draw()
 
     drawAfterCamera()
 
-    --debug:d()
+    debug:d()
     --debug:single()
 end
 

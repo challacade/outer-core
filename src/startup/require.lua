@@ -6,6 +6,7 @@ function requireAll()
     require("src/ui/pause")
 
     require("src/attacks/cores")
+    require("src/attacks/items")
     require("src/attacks/projectile")
 
     require("src/characters/enemy")
@@ -17,6 +18,8 @@ function requireAll()
     require("src/effects/background")
     require("src/effects/particles/particle")
     require("src/effects/particles/particleEvent")
+
+    require("src/ui/sidePanel")
     
     require("src/utilities/cam")
     require("src/utilities/debug")
