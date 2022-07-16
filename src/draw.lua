@@ -47,6 +47,12 @@ function drawCamera()
 
     sidePanel:draw()
 
+    if heldItemSprite then
+        setWhite()
+        local mx, my = cam:mousePosition() 
+        love.graphics.draw(heldItemSprite, mx, my, nil, nil, nil, heldItemSprite:getWidth()/2, heldItemSprite:getHeight()/2)
+    end
+
 end
 
 function drawAfterCamera()

@@ -63,10 +63,12 @@ function initGlobals()
     selectedUnitId = -1
 
     heldItemType = -1
+    heldItemIndex = -1
     heldItemId = -1
     heldItemSprite = nil
 
     hoverItemType = -1
+    heldItemIndex = -1
     hoverItemId = -1
     hoverItemSprite = nil
 end

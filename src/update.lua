@@ -33,6 +33,7 @@ function updateGame(dt)
 
     manager:update(dt)
     sidePanel:update(dt)
+    mouse:update(dt)
 
     removeDeadEnemies()
     removeDeadProjectiles()

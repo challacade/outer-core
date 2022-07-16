@@ -16,7 +16,9 @@ function sidePanel:update(dt)
         local ind = self:getHoverIndex(1)
         if ind > 0 then
             hoverItemType = 1 -- Core
-            hoverItemId = ind
+            hoverItemIndex = ind
+            hoverItemId = myCores[ind]
+            hoverItemSprite = coreData[myCores[ind]][8] -- Get the core sprite
             d1 = "hovering " .. ind
         end
     end
@@ -24,7 +26,9 @@ function sidePanel:update(dt)
         local ind = self:getHoverIndex(2)
         if ind > 0 then
             hoverItemType = 2 -- Item
-            hoverItemId = ind
+            hoverItemIndex = ind
+            hoverItemId = myItems[ind]
+            --hoverItemSprite = coreData[myCores[ind]][8] -- Get the item sprite
             d1 = "hovering " .. ind
         end
     end
@@ -52,6 +56,9 @@ function sidePanel:draw()
     -- Draw cores
     for i,c in ipairs(myCores) do
         setWhite()
+        if myCoresEquipped[i] then
+            setColorFromString(myCoresEquipped[i])
+        end
         love.graphics.draw(sprites.ui.dice, sidePanel.x1, sidePanel.top + i*18, nil, nil, nil, sprites.ui.dice:getWidth()/2, sprites.ui.dice:getHeight()/2)
     end
 
