@@ -193,7 +193,7 @@ function spawnUnit(id, tileX, tileY)
         self.state = 3
         self.animTimer1 = 0.5
         self.animTimer2 = 0.05
-        self.offDir = self.dir:rotated(math.pi/2)
+        self.offDir = self.dir:rotated(math.pi/2):normalized()
         self.offset = 0.6
     end
 
