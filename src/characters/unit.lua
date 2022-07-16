@@ -13,18 +13,22 @@ function spawnUnit(id, tileX, tileY)
     unit.destTileY = 0
     unit.sprite = sprites.characters.unit
     unit.color = "white"
-    unit.rot = math.random(-3, 3)
+    unit.dir = vector(0, 1)
     unit.moveSpeed = 60
     unit.rollSpeed = 0.75
     unit.rollTimer = 0
     unit.coreId = 0
+    unit.animTimer1 = 0
+    unit.animTimer2 = 0
 
     unit.offDir = vector(1,0)
     unit.offset = 0
     
     -- 0: Standby
     -- 1: Active
+    -- 1.5: Attacking
     -- 2: Walking
+    -- 3: Malfunctioning
     unit.state = 1
     unit.awaitingOrders = false
 
@@ -39,6 +43,8 @@ function spawnUnit(id, tileX, tileY)
     function unit:matchRotation()
         self.rot = math.atan2(self.dir.y, self.dir.x)
     end
+
+    unit:matchRotation()
 
     function unit:setActive()
         self.state = 1
@@ -76,6 +82,23 @@ function spawnUnit(id, tileX, tileY)
                 unit:setActive()
             end
         end
+
+        if self.state == 3 then
+            self.animTimer1 = self.animTimer1 - dt
+            self.animTimer2 = self.animTimer2 - dt
+
+            if self.animTimer2 < 0 then
+                self.animTimer2 = 0.05
+                self.offDir = self.offDir:rotated(math.pi)
+            end
+
+            if self.animTimer1 < 0 then
+                self.animTimer1 = 0
+                self.animTimer2 = 0
+                self.offset = 0
+                self:setActive()
+            end
+        end
     end
 
     function unit:draw()
@@ -109,11 +132,13 @@ function spawnUnit(id, tileX, tileY)
         elseif attackName == "around" then
             self:aroundShot()
         elseif attackName == "mal" then
-            self:setActive()
+            self:malfunction()
         end
     end
 
     function unit:aimedShot()
+        self.state = 1.5
+
         local shotX = 0
         local shotY = 0
         local tempDist = 999999
@@ -136,6 +161,8 @@ function spawnUnit(id, tileX, tileY)
     end
 
     function unit:aroundShot()
+        self.state = 1.5
+
         spawnProjectile('laser', self.x, self.y, vector(1, 0), self.color)
         spawnProjectile('laser', self.x, self.y, vector(1, 1), self.color)
         spawnProjectile('laser', self.x, self.y, vector(0, 1), self.color)
@@ -146,7 +173,7 @@ function spawnUnit(id, tileX, tileY)
         spawnProjectile('laser', self.x, self.y, vector(1, -1), self.color)
 
         local destRot = self.rot + math.pi*2
-        flux.to(self, 0.3, {rot = destRot}):ease("linear"):oncomplete(function() self:setActive() end)
+        flux.to(self, 0.35, {rot = destRot}):ease("quadinout"):oncomplete(function() self:setActive() end)
     end
 
     function unit:kickbackToActive()
@@ -160,6 +187,14 @@ function spawnUnit(id, tileX, tileY)
                 )
             end
         )
+    end
+
+    function unit:malfunction()
+        self.state = 3
+        self.animTimer1 = 0.5
+        self.animTimer2 = 0.05
+        self.offDir = self.dir:rotated(math.pi/2)
+        self.offset = 0.6
     end
 
     table.insert(units, unit)
