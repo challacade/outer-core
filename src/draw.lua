@@ -19,6 +19,8 @@ function drawCamera()
         love.graphics.rectangle('line', hoverTileX*16, hoverTileY*16, 16, 16)
     end
 
+    units:draw()
+
 end
 
 function drawAfterCamera()

@@ -4,6 +4,8 @@ function requireAll()
     require("src/startup/resources")
 
     require("src/ui/pause")
+
+    require("src/characters/unit")
     
     require("src/utilities/cam")
     require("src/utilities/debug")
@@ -11,5 +13,6 @@ function requireAll()
 
     require("src/update")
     require("src/draw")
+    require("src/mouse")
 
 end

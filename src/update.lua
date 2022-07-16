@@ -24,6 +24,8 @@ function updateGame(dt)
         hoverTileY = -100
     end
 
+    units:update(dt)
+
     cam:update(dt)
     
 end

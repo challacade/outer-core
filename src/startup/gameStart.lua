@@ -54,6 +54,7 @@ function initGlobals()
     gamestate = 1
     hoverTileX = -1
     hoverTileY = -1
+    selectedUnitId = -1
 end
 
 function setScale(input)

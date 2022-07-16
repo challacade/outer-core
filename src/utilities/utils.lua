@@ -116,6 +116,35 @@ function setColor(r, g, b)
     love.graphics.setColor(r/255, g/255, b/255)
 end
 
+function setColorFromString(name)
+    if name == "pink" then
+        setColor(222, 129, 216)
+    elseif name == "blue" then
+        setColor(106, 222, 208)
+    elseif name == "yellow" then
+        setColor(222, 194, 84)
+    else
+        setWhite()
+    end
+end
+
+function isHoveringTile()
+    return (hoverTileX > -100 and hoverTileY > -100)
+end
+
+function isHoverTileEmpty()
+    
+    -- Check if the hovered tile contains a unit
+    for _,u in ipairs(units) do
+        if u.tileX == hoverTileX and u.tileY == hoverTileY then
+            return false -- there's a unit here, don't actually release
+        end
+    end
+
+    return true
+
+end
+
 -- 'startswith' courtesy of StackOverflow
 -- https://stackoverflow.com/questions/22831701/lua-read-beginning-of-a-string
 string.startswith = function(self, str) 

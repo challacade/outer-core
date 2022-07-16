@@ -28,12 +28,28 @@ function love.draw()
 
     drawAfterCamera()
 
-    --debug:d()
+    debug:d()
     --debug:single()
 end
 
 function love.keypressed(key)
     if key == 'escape' then
         love.event.quit()
+    end
+
+    if key == 'u' then
+        spawnUnit(1, math.random(-5, 5), math.random(-3, 3))
+    end
+end
+
+function love.mousepressed(x, y, button)
+    if button == 1 then
+        mouse:leftClick()
+    end
+end
+
+function love.mousereleased(x, y, button)
+    if button == 1 then
+        mouse:releaseLeft()
     end
 end
