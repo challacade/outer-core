@@ -23,6 +23,7 @@ function drawCamera()
             if u.id == selectedUnitId then
                 arrowX = u.x
                 arrowY = u.y
+                setColorFromString(u.color)
             end
         end
         local destX = hoverTileX*16 + 8

@@ -14,7 +14,7 @@ function spawnUnit(id, tileX, tileY)
     unit.sprite = sprites.characters.unit
     unit.color = "white"
     unit.rot = math.random(-3, 3)
-    unit.speed = 60
+    unit.moveSpeed = 60
     
     -- 0: Standby
     -- 1: Active
@@ -32,7 +32,7 @@ function spawnUnit(id, tileX, tileY)
 
     function unit:update(dt)
         if self.state == 2 then
-            self.dir = getFromToVector(self.x, self.y, self.destX, self.destY) * self.speed
+            self.dir = getFromToVector(self.x, self.y, self.destX, self.destY) * self.moveSpeed
             self.rot = math.atan2(self.dir.y, self.dir.x)
             self.x = self.x + self.dir.x * dt
             self.y = self.y + self.dir.y * dt
