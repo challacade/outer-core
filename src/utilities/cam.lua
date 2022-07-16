@@ -35,7 +35,7 @@ function cam:update(dt)
     end
     ]]
 
-    cam:lookAt(0, 0)
+    cam:lookAt(8, 0)
   
     -- cam.x and cam.y keep track of where the camera is located
     -- the lookAt value may be moved if a screenshake is happening, so these

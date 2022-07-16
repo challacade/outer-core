@@ -28,8 +28,7 @@ function love.draw()
 
     drawAfterCamera()
 
-    --local debug = require "src/debug"
-    --debug:d()
+    debug:d()
     --debug:single()
 end
 

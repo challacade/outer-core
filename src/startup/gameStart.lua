@@ -52,6 +52,8 @@ function initGlobals()
     -- 0: main menu
     -- 1: gameplay
     gamestate = 1
+    hoverTileX = -1
+    hoverTileY = -1
 end
 
 function setScale(input)
