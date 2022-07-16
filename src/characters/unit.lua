@@ -17,6 +17,7 @@ function spawnUnit(id, tileX, tileY)
     unit.moveSpeed = 60
     unit.rollSpeed = 0.75
     unit.rollTimer = 0
+    unit.coreId = 0
     
     -- 0: Standby
     -- 1: Active
@@ -42,6 +43,10 @@ function spawnUnit(id, tileX, tileY)
     end
 
     function unit:update(dt)
+
+        if self.coreId == 0 then -- no core equipped
+            return nil
+        end
 
         if self.state == 1 then
             self.rollTimer = self.rollTimer - dt
@@ -71,7 +76,11 @@ function spawnUnit(id, tileX, tileY)
     end
 
     function unit:draw()
-        setColorFromString(self.color)
+        if unit.coreId > 0 then
+            setColorFromString(self.color)
+        else
+            setDullColorFromString(self.color)
+        end
         love.graphics.draw(self.sprite, self.x, self.y, self.rot, nil, nil, self.sprite:getWidth()/2, self.sprite:getHeight()/2)
     end
 
@@ -88,9 +97,13 @@ function spawnUnit(id, tileX, tileY)
     function unit:rollAttack()
         self.state = 1.1
         local result = math.random(1,6)
-        if result < 7 then
-            -- aimed shot
+        local attackName = coreData[self.coreId][result]
+        if attackName == "aim" then
             self:aimedShot()
+        elseif attackName == "around" then
+            self:setActive()
+        elseif attackName == "mal" then
+            self:setActive()
         end
     end
 

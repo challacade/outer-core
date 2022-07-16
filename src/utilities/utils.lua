@@ -128,6 +128,18 @@ function setColorFromString(name)
     end
 end
 
+function setDullColorFromString(name)
+    if name == "pink" then
+        setColor(222/2, 129/2, 216/2)
+    elseif name == "blue" then
+        setColor(106/2, 222/2, 208/2)
+    elseif name == "yellow" then
+        setColor(222/2, 194/2, 84/2)
+    else
+        setWhite()
+    end
+end
+
 function isHoveringTile()
     return (hoverTileX > -100 and hoverTileY > -100)
 end

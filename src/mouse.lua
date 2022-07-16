@@ -32,5 +32,14 @@ function mouse:releaseLeft()
 end
 
 function mouse:rightClick()
+    if isHoveringTile() then
 
+        -- Check if the hovered tile contains a unit
+        for _,u in ipairs(units) do
+            if u.tileX == hoverTileX and u.tileY == hoverTileY then
+                u.coreId = 1
+            end
+        end
+
+    end
 end

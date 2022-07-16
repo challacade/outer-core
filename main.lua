@@ -62,6 +62,10 @@ function love.mousepressed(x, y, button)
     if button == 1 then
         mouse:leftClick()
     end
+
+    if button == 2 then
+        mouse:rightClick()
+    end
 end
 
 function love.mousereleased(x, y, button)
