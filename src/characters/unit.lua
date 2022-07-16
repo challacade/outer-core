@@ -15,6 +15,7 @@ function spawnUnit(id, tileX, tileY)
     unit.color = "white"
     unit.rot = math.random(-3, 3)
     unit.moveSpeed = 60
+    unit.rollSpeed = 0.75
     unit.rollTimer = 0
     
     -- 0: Standby
@@ -37,7 +38,7 @@ function spawnUnit(id, tileX, tileY)
 
     function unit:setActive()
         self.state = 1
-        self.rollTimer = 1 -- set to max roll time
+        self.rollTimer = self.rollSpeed
     end
 
     function unit:update(dt)
@@ -97,7 +98,8 @@ function spawnUnit(id, tileX, tileY)
 
         self.dir = getFromToVector(self.x, self.y, shotX, shotY)
         self:matchRotation()
-        -- spawn bullet
+        
+        spawnProjectile('laser', self.x, self.y, self.dir, self.color)
 
         self:setActive()
     end

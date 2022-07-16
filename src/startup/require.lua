@@ -5,6 +5,8 @@ function requireAll()
 
     require("src/ui/pause")
 
+    require("src/attacks/projectile")
+
     require("src/characters/unit")
     
     require("src/utilities/cam")
