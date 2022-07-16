@@ -11,6 +11,7 @@ sprites.attacks = {}
 sprites.attacks.laser = love.graphics.newImage('sprites/attacks/laser.png')
 sprites.effects = {}
 sprites.effects.enemyDestroy = love.graphics.newImage('sprites/effects/enemyDestroy.png')
+sprites.effects.stars = love.graphics.newImage('sprites/effects/stars.png')
 sprites.ui = {}
 sprites.ui.arrowHead = love.graphics.newImage('sprites/ui/arrowHead.png')
 

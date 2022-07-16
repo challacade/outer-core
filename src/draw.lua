@@ -4,6 +4,8 @@ end
 
 function drawCamera()
 
+    background:draw()
+
     if gamestate == 0 then return end
     setWhite()
 

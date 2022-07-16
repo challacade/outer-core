@@ -1,6 +1,6 @@
 function gameStart()
 
-    love.graphics.setBackgroundColor(93/255, 72/255, 97/255)
+    love.graphics.setBackgroundColor(0, 0, 0)
 
     -- Initialize all global variables for the game
     initGlobals()
