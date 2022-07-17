@@ -1,6 +1,6 @@
 coreData = {
     {
-        "double", "double", "double", "double", "double", "aim", "Standard Core", sprites.ui.dice
+        "double", "doubleSpin", "doubleSpin", "doubleSpin", "doubleSpin", "aim", "Standard Core", sprites.ui.dice
     },
     {
         "aim", "aim", "around", "around", "mal", "mal", "Cool", sprites.ui.dice

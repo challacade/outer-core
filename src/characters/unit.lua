@@ -138,6 +138,8 @@ function spawnUnit(id, tileX, tileY)
             self:aimedShot()
         elseif attackName == "around" then
             self:aroundShot()
+        elseif attackName == "doubleSpin" then
+            self:aroundShot(true)
         elseif attackName == "shock" then
             self:proximityShock()
         elseif attackName == "shotgun" then
@@ -184,7 +186,7 @@ function spawnUnit(id, tileX, tileY)
         end
     end
 
-    function unit:aroundShot()
+    function unit:aroundShot(double)
         self.state = 1.5
 
         spawnProjectile('laser', self.x, self.y, vector(1, 0), self.color)
@@ -195,6 +197,17 @@ function spawnUnit(id, tileX, tileY)
         spawnProjectile('laser', self.x, self.y, vector(-1, -1), self.color)
         spawnProjectile('laser', self.x, self.y, vector(0, -1), self.color)
         spawnProjectile('laser', self.x, self.y, vector(1, -1), self.color)
+
+        if double then
+            spawnProjectile('laser', self.x, self.y, vector(1, 0):rotated(math.pi/8), self.color)
+            spawnProjectile('laser', self.x, self.y, vector(1, 1):rotated(math.pi/8), self.color)
+            spawnProjectile('laser', self.x, self.y, vector(0, 1):rotated(math.pi/8), self.color)
+            spawnProjectile('laser', self.x, self.y, vector(-1, 1):rotated(math.pi/8), self.color)
+            spawnProjectile('laser', self.x, self.y, vector(-1, 0):rotated(math.pi/8), self.color)
+            spawnProjectile('laser', self.x, self.y, vector(-1, -1):rotated(math.pi/8), self.color)
+            spawnProjectile('laser', self.x, self.y, vector(0, -1):rotated(math.pi/8), self.color)
+            spawnProjectile('laser', self.x, self.y, vector(1, -1):rotated(math.pi/8), self.color)
+        end
 
         local destRot = self.rot + math.pi*2
         flux.to(self, 0.35, {rot = destRot}):ease("quadinout"):oncomplete(function() self:setActive() end)
