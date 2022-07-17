@@ -3,12 +3,16 @@ manager.level = 1
 manager.spawnTimer = 1
 manager.spawnCount = 1
 manager.state = 0
+manager.mapSprite = nil
 
 function manager:startLevel(num)
+    gamestate = 1
     self.level = num
     self.spawnTimer = 1
     self.spawnCount = 1
     self.state = 0
+    menu.levelToStart = 0
+    removeGuides()
 
     if num == 1 then
         spawnGuide(0, -1, vector(-1, 0))
@@ -18,6 +22,20 @@ function manager:startLevel(num)
 
         spawnUnit(1, -2, 3)
         spawnUnit(2, 2, 3)
+
+        manager.mapSprite = sprites.maps.level1
+    end
+
+    if num == 2 then
+        spawnGuide(0, -1, vector(-1, 0))
+        spawnGuide(-5, -2, vector(0, 1))
+        spawnGuide(-4, 2, vector(1, 0))
+        spawnGuide(5, 1, vector(0, 1))
+
+        spawnUnit(1, -2, 3)
+        spawnUnit(2, 2, 3)
+
+        manager.mapSprite = sprites.maps.level2
     end
 end
 

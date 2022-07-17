@@ -23,6 +23,7 @@ function requireAll()
 
     require("src/ui/hoverPanel")
     require("src/ui/sidePanel")
+    require("src/ui/menu")
     
     require("src/utilities/cam")
     require("src/utilities/debug")

@@ -8,8 +8,6 @@ function love.load()
     require("src/startup/gameStart")
     gameStart()
     --createNewSave()
-
-    manager:startLevel(1)
  
     dj.volume("effect", 1)
 
@@ -52,11 +50,35 @@ function love.keypressed(key)
     if key == 'e' then
         spawnEnemy('skull', math.random(-5, 5), math.random(-3, 3))
     end
+
+    if key == '1' and gamestate == 0 then
+        manager:startLevel(1)
+    end
+
+    if key == '2' and gamestate == 0 then
+        manager:startLevel(2)
+    end
+
+    if key == '3' and gamestate == 0 then
+        manager:startLevel(3)
+    end
+
+    if key == '4' and gamestate == 0 then
+        manager:startLevel(4)
+    end
+
+    if key == '5' and gamestate == 0 then
+        manager:startLevel(5)
+    end
 end
 
 function love.mousepressed(x, y, button)
     if button == 1 then
         mouse:leftClick()
+
+        if gamestate == 0 then
+            menu.levelSelect = true
+        end
     end
 
     if button == 2 then

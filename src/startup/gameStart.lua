@@ -57,7 +57,7 @@ function initGlobals()
     -- game state
     -- 0: main menu
     -- 1: gameplay
-    gamestate = 1
+    gamestate = 0
     hoverTileX = -1
     hoverTileY = -1
     selectedUnitId = -1

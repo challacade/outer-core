@@ -13,9 +13,11 @@ function drawCamera()
         --gameMap:drawLayer(gameMap.layers["Base"])
     --end
     local ww, wh = love.graphics.getDimensions()
-    local mapSprite = sprites.maps.test4
+    local mapSprite = manager.mapSprite
     --love.graphics.draw(mapSprite, ww/2*scale, ww/2*scale, nil, nil, nil, mapSprite:getWidth()/2, mapSprite:getHeight()/2)
-    love.graphics.draw(mapSprite, 8, 0, nil, nil, nil, mapSprite:getWidth()/2, mapSprite:getHeight()/2)
+    if mapSprite then
+        love.graphics.draw(mapSprite, 8, 0, nil, nil, nil, mapSprite:getWidth()/2, mapSprite:getHeight()/2)
+    end
 
     -- walking arrow
     if selectedUnitId >= 0 and isHoveringTile() then
@@ -59,6 +61,7 @@ end
 
 function drawAfterCamera()
     --curtain:draw()
+    menu:draw()
     if gamestate == 0 then return end
     hoverPanel:drawText()
     manager:draw()

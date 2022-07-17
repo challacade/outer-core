@@ -1,6 +1,29 @@
 mouse = {}
 
 function mouse:leftClick()
+    if gamestate == 0 and menu.levelSelect then
+        local mx, my = love.mouse.getPosition()
+        if mx > love.graphics.getWidth()/2 - (30*scale) and mx < love.graphics.getWidth()/2 + (30*scale) then
+            
+            local halfW = love.graphics.getWidth()/2
+            local halfH = love.graphics.getHeight()/2
+            if my > halfH - (40*scale) and my < halfH - (24*scale) then
+                menu.levelToStart = 1
+            elseif my > halfH - (23*scale) and my < halfH - (8*scale) then
+                menu.levelToStart = 2
+            elseif my > halfH - (7*scale) and my < halfH + (8*scale) then
+                menu.levelToStart = 3
+            elseif my > halfH + (9*scale) and my < halfH + (23*scale) then
+                menu.levelToStart = 4
+            elseif my > halfH + (24*scale) and my < halfH + (39*scale) then
+                menu.levelToStart = 5
+            end
+
+        end
+    end
+
+    if gamestate == 0 then return nil end
+
     if isHoveringTile() then
 
         -- Check if the hovered tile contains a unit
