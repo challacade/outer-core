@@ -39,6 +39,7 @@ function drawCamera()
     end
 
     if hoverTileX > -100 and hoverTileY > -100 then
+        love.graphics.setLineWidth(1.5)
         love.graphics.rectangle('line', hoverTileX*16, hoverTileY*16, 16, 16)
     end
 

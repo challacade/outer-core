@@ -15,12 +15,14 @@ function spawnUnit(id, tileX, tileY)
     unit.color = "white"
     unit.dir = vector(0, 1)
     unit.moveSpeed = 60
-    unit.rollSpeed = 0.75
-    unit.rollTimer = 0
+    unit.rollSpeed = 1.5
+    unit.batterySpeed = 0.75
+    unit.rollTimer = 0.5
     unit.coreId = 0
     unit.animTimer1 = 0
     unit.animTimer2 = 0
     unit.wrenchTimer = 0
+    unit.batteryTimer = 0
 
     unit.offDir = vector(1,0)
     unit.offset = 0
@@ -50,7 +52,10 @@ function spawnUnit(id, tileX, tileY)
     function unit:setActive()
         if self.state == 2 then return end
         self.state = 1
-        self.rollTimer = self.rollSpeed
+
+        local newTime = self.rollSpeed
+        if self.batteryTimer > 0 then newTime = self.batterySpeed end
+        self.rollTimer = newTime
     end
 
     function unit:update(dt)
@@ -61,6 +66,10 @@ function spawnUnit(id, tileX, tileY)
 
         if self.wrenchTimer > 0 then
             self.wrenchTimer = self.wrenchTimer - dt
+        end
+
+        if self.batteryTimer > 0 then
+            self.batteryTimer = self.batteryTimer - dt
         end
 
         if self.state == 1 then
@@ -249,6 +258,10 @@ function spawnUnit(id, tileX, tileY)
 
     function unit:applyWrench()
         self.wrenchTimer = 15
+    end
+
+    function unit:applyBattery()
+        self.batteryTimer = 10
     end
 
     table.insert(units, unit)

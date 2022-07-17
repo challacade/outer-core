@@ -8,7 +8,10 @@ coreData = {
     {
         "shock", "shock", "shock", "shotgun", "shotgun", "shotgun", "Close Combat", sprites.ui.dice
     },
+    {
+        "mal", "mal", "mal", "mal", "mal", "mal", "Broken Core", sprites.ui.dice
+    },
 }
 
-myCores = {1, 2, 3}
+myCores = {1, 2, 3, 4}
 myCoresEquipped = {nil, nil, nil, nil, nil, nil, nil, nil, nil}

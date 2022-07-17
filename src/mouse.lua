@@ -81,6 +81,8 @@ function mouse:releaseLeft()
                     elseif heldItemType == 2 then
                         if heldItemId == 1 then -- "wrench"
                             u:applyWrench()
+                        elseif heldItemId == 2 then -- "battery"
+                            u:applyBattery()
                         end
                         myItems[heldItemIndex] = -1
                     end
