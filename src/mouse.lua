@@ -3,6 +3,7 @@ mouse = {}
 function mouse:leftClick()
     if tutorial.active then
         tutorial.stage = tutorial.stage + 1
+        dj.play(sounds.click, "static", "effect")
         return nil
     end
 
@@ -26,6 +27,7 @@ function mouse:leftClick()
 
             if menu.levelToStart > 0 then
                 curtain:call()
+                dj.play(sounds.click, "static", "effect")
             end
 
         end
@@ -83,12 +85,14 @@ function mouse:releaseLeft()
                         end
                         myCoresEquipped[heldItemIndex] = u.color
                         spawnBlast(u.x, u.y, 30, u.color, 0.4)
+                        dj.play(sounds.click, "static", "effect")
                     elseif heldItemType == 2 then
                         if heldItemId == 1 then -- "wrench"
                             u:applyWrench()
                         elseif heldItemId == 2 then -- "battery"
                             u:applyBattery()
                         end
+                        spawnBlast(u.x, u.y, 30, u.color, 0.4)
                         myItems[heldItemIndex] = -1
                     end
 
@@ -109,6 +113,7 @@ function mouse:releaseLeft()
         for _,u in ipairs(units) do
             if u.awaitingOrders then
                 u:walkTo(hoverTileX, hoverTileY)
+                dj.play(sounds.click, "static", "effect")
             end
         end
 

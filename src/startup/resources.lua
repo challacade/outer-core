@@ -41,3 +41,9 @@ fonts.levelTitle = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 
 fonts.tutorial = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 10*scale)
 
 sounds = {}
+sounds.click = "sounds/click.wav"
+sounds.death = "sounds/death.wav"
+sounds.error = "sounds/error.wav"
+sounds.laser = "sounds/laser.wav"
+sounds.shock = "sounds/shock.wav"
+sounds.hit = "sounds/hit.wav"

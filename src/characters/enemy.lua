@@ -69,6 +69,7 @@ function spawnEnemy(type, tileX, tileY)
             self.dead = true
             spawnBlast(self.x, self.y, 12, "red", 0.3)
             particleEvent('enemyDestroy', self.x, self.y, arg)
+            dj.play(sounds.hit, "static", "effect")
         end
 
         self.anim:update(dt)

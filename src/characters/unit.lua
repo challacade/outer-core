@@ -145,18 +145,25 @@ function spawnUnit(id, tileX, tileY)
         local attackName = coreData[self.coreId][result]
         if attackName == "aim" then
             self:aimedShot()
+            dj.play(sounds.laser, "static", "effect")
         elseif attackName == "around" then
             self:aroundShot()
+            dj.play(sounds.laser, "static", "effect")
         elseif attackName == "doubleSpin" then
             self:aroundShot(true)
+            dj.play(sounds.laser, "static", "effect")
         elseif attackName == "shock" then
             self:proximityShock()
+            dj.play(sounds.shock, "static", "effect")
         elseif attackName == "shotgun" then
             self:aimedShot(true)
+            dj.play(sounds.laser, "static", "effect")
         elseif attackName == "double" then
             self:aimedShot(false, true)
+            dj.play(sounds.laser, "static", "effect")
         elseif attackName == "mal" then
             self:malfunction()
+            dj.play(sounds.error, "static", "effect")
         end
     end
 

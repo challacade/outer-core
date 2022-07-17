@@ -78,6 +78,7 @@ function love.mousepressed(x, y, button)
 
         if gamestate == 0 then
             menu.levelSelect = true
+            dj.play(sounds.click, "static", "effect")
         end
     end
 
