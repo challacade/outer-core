@@ -29,16 +29,16 @@ sprites.ui.battery = love.graphics.newImage('sprites/ui/battery.png')
 
 fonts = {}
 fonts.debug = love.graphics.newFont("fonts/vt323/VT323-Regular.ttf", 15*scale)
-fonts.coreHover = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 10*scale)
-fonts.coreHoverTitle = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 12*scale)
-fonts.itemHover = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 10*scale)
+fonts.coreHover = love.graphics.newFont("fonts/vt323/VT323-Regular.ttf", 8.5*scale)
+fonts.coreHoverTitle = love.graphics.newFont("fonts/vt323/VT323-Regular.ttf", 12*scale)
+fonts.itemHover = love.graphics.newFont("fonts/vt323/VT323-Regular.ttf", 10*scale)
 fonts.levelComplete = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 26*scale)
 fonts.title = love.graphics.newFont("fonts/vt323/VT323-Regular.ttf", 36*scale)
 fonts.clickToBegin = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 16*scale)
 fonts.pickLevel = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 16*scale)
 fonts.pickLevel2 = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 12*scale)
 fonts.levelTitle = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 22*scale)
-fonts.tutorial = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 10*scale)
+fonts.tutorial = love.graphics.newFont("fonts/vt323/VT323-Regular.ttf", 9*scale)
 
 sounds = {}
 sounds.click = "sounds/click.wav"

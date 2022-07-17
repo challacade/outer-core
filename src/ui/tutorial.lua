@@ -7,7 +7,8 @@ tutorial.text = {
     "These bots are powered by Cores (seen in the right panel). The core that a bot has equipped determines which attacks it will use.",
     "A Core is like a dice; each face of the core is a different attack it can use. However, it's a roll of the dice which attack will happen.",
     "Fortunately, each bot performs one of these attacks about once every 2 seconds. You can hover over a core to see more details.",
-    "Click and drag a Core to your units to power them up with that core. After they're active, you can click and drag a bot to move them around the map to find better positions for their attacks.",
+    "Click and drag a Core to your units to power them up with that core.",
+    "After a unit is active, you can click and drag them to move them around the map to find better positions for their attacks.",
     "Be careful with Cores that have Malfunctions. The bot will need to re-roll if it lands a Malfunction.",
     "The invasion begins once all of your bots are powered up. Good luck!"
 }
