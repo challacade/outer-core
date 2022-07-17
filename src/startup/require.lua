@@ -19,6 +19,7 @@ function requireAll()
     require("src/effects/particles/particle")
     require("src/effects/particles/particleEvent")
 
+    require("src/ui/hoverPanel")
     require("src/ui/sidePanel")
     
     require("src/utilities/cam")

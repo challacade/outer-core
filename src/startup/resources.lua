@@ -16,11 +16,14 @@ sprites.effects.stars2 = love.graphics.newImage('sprites/effects/stars2.png')
 sprites.ui = {}
 sprites.ui.arrowHead = love.graphics.newImage('sprites/ui/arrowHead.png')
 sprites.ui.sidePanel = love.graphics.newImage('sprites/ui/sidePanel.png')
+sprites.ui.itemHoverPanel = love.graphics.newImage('sprites/ui/itemHoverPanel.png')
 sprites.ui.dice = love.graphics.newImage('sprites/ui/dice.png')
 sprites.ui.wrench = love.graphics.newImage('sprites/ui/wrench.png')
 sprites.ui.battery = love.graphics.newImage('sprites/ui/battery.png')
 
 fonts = {}
 fonts.debug = love.graphics.newFont("fonts/vt323/VT323-Regular.ttf", 15*scale)
+fonts.itemHover = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 10*scale)
+fonts.itemHover2 = love.graphics.newFont(10)
 
 sounds = {}

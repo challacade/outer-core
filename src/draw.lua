@@ -46,6 +46,7 @@ function drawCamera()
     particles:draw()
 
     sidePanel:draw()
+    hoverPanel:draw()
 
     if heldItemSprite then
         setWhite()
@@ -58,6 +59,7 @@ end
 function drawAfterCamera()
     --curtain:draw()
     if gamestate == 0 then return end
+    hoverPanel:drawText()
     --drawHUD()
     --pause:draw()
 end
