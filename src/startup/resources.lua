@@ -28,5 +28,6 @@ fonts.debug = love.graphics.newFont("fonts/vt323/VT323-Regular.ttf", 15*scale)
 fonts.coreHover = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 10*scale)
 fonts.coreHoverTitle = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 12*scale)
 fonts.itemHover = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 10*scale)
+fonts.levelComplete = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 26*scale)
 
 sounds = {}

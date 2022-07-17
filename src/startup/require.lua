@@ -13,6 +13,7 @@ function requireAll()
     require("src/characters/unit")
 
     require("src/levels/guide")
+    require("src/levels/levelData")
     require("src/levels/manager")
 
     require("src/effects/background")

@@ -9,11 +9,7 @@ function love.load()
     gameStart()
     --createNewSave()
 
-    --loadMap("menu")
-    spawnGuide(0, -1, vector(-1, 0))
-    spawnGuide(-5, -2, vector(0, 1))
-    spawnGuide(-4, 2, vector(1, 0))
-    spawnGuide(5, 1, vector(0, 1))
+    manager:startLevel(1)
  
     dj.volume("effect", 1)
 
@@ -32,7 +28,7 @@ function love.draw()
 
     drawAfterCamera()
 
-    --debug:d()
+    debug:d()
     --debug:single()
 end
 
