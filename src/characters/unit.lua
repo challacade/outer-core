@@ -142,12 +142,14 @@ function spawnUnit(id, tileX, tileY)
             self:proximityShock()
         elseif attackName == "shotgun" then
             self:aimedShot(true)
+        elseif attackName == "double" then
+            self:aimedShot(false, true)
         elseif attackName == "mal" then
             self:malfunction()
         end
     end
 
-    function unit:aimedShot(shotgun)
+    function unit:aimedShot(shotgun, double)
         self.state = 1.5
 
         local shotX = 0
@@ -166,7 +168,14 @@ function spawnUnit(id, tileX, tileY)
         self.dir = getFromToVector(self.x, self.y, shotX, shotY)
         self:matchRotation()
         
-        spawnProjectile('laser', self.x, self.y, self.dir, self.color)
+        if double then
+            local perp = self.dir:rotated(math.pi/2)*4
+            spawnProjectile('laser', self.x + perp.x, self.y + perp.y, self.dir, self.color)
+            spawnProjectile('laser', self.x - perp.x, self.y - perp.y, self.dir, self.color)
+        else
+            spawnProjectile('laser', self.x, self.y, self.dir, self.color)
+        end
+        
         unit:kickbackToActive()
         
         if shotgun then
