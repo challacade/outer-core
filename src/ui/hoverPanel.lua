@@ -72,6 +72,8 @@ function hoverPanel:drawText()
                     labelText = "Spin Shot"
                 elseif faceString == "shock" then
                     labelText = "Proximity Shock"
+                elseif faceString == "shotgun" then
+                    labelText = "Shotgun"
                 elseif faceString == "mal" then
                     labelText = "Malfunction"
                     setColor(198, 59, 59)

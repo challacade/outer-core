@@ -6,7 +6,7 @@ coreData = {
         "aim", "aim", "around", "around", "mal", "mal", "Cool", sprites.ui.dice
     },
     {
-        "shock", "shock", "shock", "shock", "shock", "shock", "Shock", sprites.ui.dice
+        "shock", "shock", "shock", "shotgun", "shotgun", "shotgun", "Close Combat", sprites.ui.dice
     },
 }
 
