@@ -226,3 +226,11 @@ function units:draw()
         u:draw()
     end
 end
+
+function units:remove()
+    local i = #units
+    while i > 0 do
+        table.remove(units, i)
+        i = i - 1
+    end
+end

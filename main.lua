@@ -48,7 +48,7 @@ function love.keypressed(key)
     end
 
     if key == 'e' then
-        spawnEnemy('skull', math.random(-5, 5), math.random(-3, 3))
+        curtain:call()
     end
 
     if key == '1' and gamestate == 0 then

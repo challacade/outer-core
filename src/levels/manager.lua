@@ -13,6 +13,7 @@ function manager:startLevel(num)
     self.state = 0
     menu.levelToStart = 0
     removeGuides()
+    units:remove()
 
     if num == 1 then
         spawnGuide(0, -1, vector(-1, 0))
@@ -40,6 +41,7 @@ function manager:startLevel(num)
 end
 
 function manager:update(dt)
+    if gamestate == 0 then return nil end
     if self.state == 0 then
         for _,u in ipairs(units) do
             if u.coreId < 1 then
@@ -75,7 +77,8 @@ function manager:update(dt)
     if self.state == 3 then
         self.spawnTimer = self.spawnTimer - dt
         if self.spawnTimer < 0 then
-            -- return to main menu
+            curtain:call()
+            self.state = 4
         end
     end
 end

@@ -19,6 +19,10 @@ function mouse:leftClick()
                 menu.levelToStart = 5
             end
 
+            if menu.levelToStart > 0 then
+                curtain:call()
+            end
+
         end
     end
 

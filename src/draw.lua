@@ -62,9 +62,11 @@ end
 function drawAfterCamera()
     --curtain:draw()
     menu:draw()
-    if gamestate == 0 then return end
-    hoverPanel:drawText()
-    manager:draw()
+    if gamestate ~= 0 then
+        hoverPanel:drawText()
+        manager:draw()
+    end
     --drawHUD()
     --pause:draw()
+    curtain:draw()
 end
