@@ -41,6 +41,7 @@ function spawnEnemy(type, tileX, tileY)
 
         if self.health <= 0 then
             self.dead = true
+            spawnBlast(self.x, self.y, 12, "red", 0.3)
             particleEvent('enemyDestroy', self.x, self.y, arg)
         end
 

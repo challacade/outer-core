@@ -16,6 +16,7 @@ function requireAll()
     require("src/levels/manager")
 
     require("src/effects/background")
+    require("src/effects/blast")
     require("src/effects/particles/particle")
     require("src/effects/particles/particleEvent")
 

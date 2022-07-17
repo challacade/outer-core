@@ -43,6 +43,7 @@ function drawCamera()
     projectiles:draw()
     enemies:draw()
     units:draw()
+    blasts:draw()
     particles:draw()
 
     sidePanel:draw()

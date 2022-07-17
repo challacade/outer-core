@@ -41,6 +41,7 @@ function mouse:releaseLeft()
                             end
                         end
                         myCoresEquipped[heldItemIndex] = u.color
+                        spawnBlast(u.x, u.y, 30, u.color, 0.4)
                     elseif heldItemType == 2 then
                         if heldItemId == 1 then -- "wrench"
                             u:applyWrench()

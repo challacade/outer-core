@@ -42,6 +42,7 @@ function updateGame(dt)
     cam:update(dt)
     world:update(dt)
     particles:update(dt)
+    blasts:update(dt)
     background:update(dt)
     
 end

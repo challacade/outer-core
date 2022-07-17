@@ -112,17 +112,23 @@ function dirToInt(dir)
     end
 end
 
-function setColor(r, g, b)
-    love.graphics.setColor(r/255, g/255, b/255)
+function setColor(r, g, b, alph)
+    local alpha = 1
+    if alph then alpha = alph end
+    love.graphics.setColor(r/255, g/255, b/255, alpha)
 end
 
-function setColorFromString(name)
+function setColorFromString(name, alph)
+    local alpha = 1
+    if alph then alpha = alph end
     if name == "pink" then
-        setColor(222, 129, 216)
+        setColor(222, 129, 216, alpha)
     elseif name == "blue" then
-        setColor(106, 222, 208)
+        setColor(106, 222, 208, alpha)
     elseif name == "yellow" then
-        setColor(222, 194, 84)
+        setColor(222, 194, 84, alpha)
+    elseif name == "red" then
+        setColor(211, 48, 48, alpha)
     else
         setWhite()
     end
