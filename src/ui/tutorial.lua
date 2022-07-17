@@ -34,7 +34,7 @@ function tutorial:drawText()
         setWhite()
         love.graphics.setFont(fonts.tutorial)
         love.graphics.printf(text, love.graphics.getWidth()/2 - 50*scale, love.graphics.getHeight()/2 - 27*scale, 100*scale, "left")
-        love.graphics.rectangle('line', love.graphics.getWidth()/2 - 50*scale, love.graphics.getHeight()/2 - 30*scale, 100*scale, 50)
+        --love.graphics.rectangle('line', love.graphics.getWidth()/2 - 50*scale, love.graphics.getHeight()/2 - 30*scale, 100*scale, 50)
 
     end
 end

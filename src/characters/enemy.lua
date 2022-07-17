@@ -21,8 +21,10 @@ function spawnEnemy(type, tileX, tileY)
     end
 
     function enemy:update(dt)
-        self.x = self.x + self.dir.x * dt
-        self.y = self.y + self.dir.y * dt
+        if manager.dead ~= true then
+            self.x = self.x + self.dir.x * dt
+            self.y = self.y + self.dir.y * dt
+        end
 
         -- Check for projectile collisions
         for _,p in ipairs(projectiles) do
@@ -35,6 +37,11 @@ function spawnEnemy(type, tileX, tileY)
         -- Check for guides (direction changes)
         for _,g in ipairs(guides) do
             if (8 + g.radius) > distanceBetween(g.x, g.y, self.x, self.y) then
+                if g.goal then
+                    spawnBlast(self.x, self.y, 90, "red", 0.5)
+                    manager.dead = true
+                    removeGuides()
+                end
                 self.dir = g.dir * self.speed
             end
         end
@@ -82,6 +89,14 @@ function removeDeadEnemies()
         if enemies[i].dead then
             table.remove(enemies, i)
         end
+        i = i - 1
+    end
+end
+
+function removeAllEnemies()
+    local i = #enemies
+    while i > 0 do
+        table.remove(enemies, i)
         i = i - 1
     end
 end

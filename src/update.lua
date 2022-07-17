@@ -19,13 +19,13 @@ function updateGame(dt)
     hoverTileX = math.floor(mx/16)
     hoverTileY = math.floor(my/16)
 
-    if math.abs(hoverTileX) > 6 or hoverTileY < -5 or hoverTileY > 3 then
+    if math.abs(hoverTileX) > 6 or hoverTileY < -5 or hoverTileY > 4 then
         hoverTileX = -100
         hoverTileY = -100
     end
 
-    --d1 = hoverTileX
-    --d2 = hoverTileY
+    d1 = hoverTileX
+    d2 = hoverTileY
 
     projectiles:update(dt)
     enemies:update(dt)

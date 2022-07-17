@@ -19,7 +19,7 @@ function sidePanel:update(dt)
             hoverItemIndex = ind
             hoverItemId = myCores[ind]
             hoverItemSprite = coreData[myCores[ind]][8] -- Get the core sprite
-            d1 = "hovering " .. ind
+            --d1 = "hovering " .. ind
         end
     end
     if mx > sidePanel.x2 - 7 and mx < sidePanel.x2 + 7 then
@@ -29,7 +29,7 @@ function sidePanel:update(dt)
             hoverItemIndex = ind
             hoverItemId = myItems[ind]
             hoverItemSprite = itemData[myItems[ind]][2] -- Get the item sprite
-            d1 = "hovering " .. ind
+            --d1 = "hovering " .. ind
         end
     end
 end

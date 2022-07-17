@@ -58,6 +58,7 @@ function curtain:open()
     else
         menu.levelToStart = 0
         gamestate = 0
+        removeAllEnemies()
     end
 
     if curtain.type == "fade" then

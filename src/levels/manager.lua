@@ -4,6 +4,7 @@ manager.spawnTimer = 1
 manager.spawnCount = 1
 manager.state = 0
 manager.mapSprite = nil
+manager.dead = false
 
 function manager:startLevel(num)
     gamestate = 1
@@ -11,9 +12,11 @@ function manager:startLevel(num)
     self.spawnTimer = 1
     self.spawnCount = 1
     self.state = 0
+    self.dead = false
     menu.levelToStart = 0
     removeGuides()
     units:remove()
+    removeAllEnemies()
 
     if num == 1 then
         tutorial:reset()
@@ -22,6 +25,7 @@ function manager:startLevel(num)
         spawnGuide(-5, -2, vector(0, 1))
         spawnGuide(-4, 2, vector(1, 0))
         spawnGuide(5, 1, vector(0, 1))
+        spawnGuide(4, 4, vector(0, 1), true)
 
         spawnUnit(1, -2, 3)
         spawnUnit(2, 2, 3)
@@ -70,7 +74,7 @@ function manager:update(dt)
     end
 
     if self.state == 2 then
-        if #enemies == 0 then
+        if #enemies == 0 or self.dead then
             self.state = 3
             self.spawnTimer = 2
         end
@@ -87,8 +91,10 @@ end
 
 function manager:draw()
     if self.state == 3 then
+        local text = "Level Complete!"
+        if self.dead then text = "Defeat" end
         setWhite()
         love.graphics.setFont(fonts.levelComplete)
-        love.graphics.printf("Level Complete!", love.graphics.getWidth()/2 - 1000, love.graphics.getHeight()/2 - 18*scale, 2000, "center")
+        love.graphics.printf(text, love.graphics.getWidth()/2 - 1000, love.graphics.getHeight()/2 - 18*scale, 2000, "center")
     end
 end
