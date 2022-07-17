@@ -26,6 +26,9 @@ coreData = {
     {
         "doubleSpin", "doubleSpin", "doubleSpin", "doubleSpin", "mal", "mal", "Tornado Core", sprites.ui.dice
     },
+    {
+        "aim", "aim", "double", "double", "around", "mal", "Infantry Core", sprites.ui.dice
+    }
 }
 
 myCores = {1, 2, 3, 4, nil, nil, nil, nil}

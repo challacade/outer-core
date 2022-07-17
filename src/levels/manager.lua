@@ -82,6 +82,48 @@ function manager:startLevel(num)
 
         manager.mapSprite = sprites.maps.level3
     end
+
+    if num == 4 then
+        spawnGuide(4, -1, vector(-1, 0))
+        spawnGuide(-5, -2, vector(0, 1))
+        spawnGuide(-4, 2, vector(1, 0))
+        spawnGuide(5, 1, vector(0, 1))
+        spawnGuide(4, 4, vector(0, 1), true)
+
+        spawnUnit(1, -1, -4)
+        spawnUnit(2, 5, 0)
+        spawnUnit(3, -5, 3)
+
+        self.spawnTileX = 4
+        self.spawnTileY = -4
+
+        myCores = {10, 7, 9, 6, 3, nil, nil, nil}
+        myItems = {1, 1, 2, nil, nil, nil, nil, nil}
+
+        manager.mapSprite = sprites.maps.level4
+    end
+
+    if num == 5 then
+        spawnGuide(4, -2, vector(-1, 0))
+        spawnGuide(-5, -3, vector(0, 1))
+        spawnGuide(-4, 0, vector(1, 0))
+        spawnGuide(1, -1, vector(0, 1))
+        spawnGuide(0, 2, vector(-1, 0))
+        spawnGuide(-3, 1, vector(0, 1))
+        spawnGuide(-2, 4, vector(0, 1), true)
+
+        spawnUnit(1, -4, 1)
+        spawnUnit(2, 2, 2)
+        spawnUnit(3, 4, -1)
+
+        self.spawnTileX = 4
+        self.spawnTileY = -4
+
+        myCores = {6, 5, 2, 8, 10, 9, 7, nil}
+        myItems = {1, 1, 1, 2, 2, nil, nil, nil}
+
+        manager.mapSprite = sprites.maps.level5
+    end
 end
 
 function manager:update(dt)
