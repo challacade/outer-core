@@ -50,6 +50,7 @@ function drawCamera()
 
     sidePanel:draw()
     hoverPanel:draw()
+    tutorial:drawBox()
 
     if heldItemSprite then
         setWhite()
@@ -65,6 +66,7 @@ function drawAfterCamera()
     if gamestate ~= 0 then
         hoverPanel:drawText()
         manager:draw()
+        tutorial:drawText()
     end
     --drawHUD()
     --pause:draw()

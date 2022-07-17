@@ -1,6 +1,11 @@
 mouse = {}
 
 function mouse:leftClick()
+    if tutorial.active then
+        tutorial.stage = tutorial.stage + 1
+        return nil
+    end
+
     if gamestate == 0 and menu.levelSelect then
         local mx, my = love.mouse.getPosition()
         if mx > love.graphics.getWidth()/2 - (30*scale) and mx < love.graphics.getWidth()/2 + (30*scale) then
@@ -53,6 +58,10 @@ function mouse:leftClick()
 end
 
 function mouse:releaseLeft()
+    if tutorial.active then
+        return nil
+    end
+
     if isHoveringTile() then
 
         if heldItemId > 0 then

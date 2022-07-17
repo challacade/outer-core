@@ -16,6 +16,8 @@ function manager:startLevel(num)
     units:remove()
 
     if num == 1 then
+        tutorial:reset()
+
         spawnGuide(0, -1, vector(-1, 0))
         spawnGuide(-5, -2, vector(0, 1))
         spawnGuide(-4, 2, vector(1, 0))

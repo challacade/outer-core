@@ -21,6 +21,7 @@ sprites.ui.sidePanel = love.graphics.newImage('sprites/ui/sidePanel.png')
 sprites.ui.coreHoverPanel = love.graphics.newImage('sprites/ui/coreHoverPanel.png')
 sprites.ui.coreDiceIcons = love.graphics.newImage('sprites/ui/diceIcons.png')
 sprites.ui.itemHoverPanel = love.graphics.newImage('sprites/ui/itemHoverPanel.png')
+sprites.ui.tutorialBox = love.graphics.newImage('sprites/ui/tutorialBox.png')
 sprites.ui.dice = love.graphics.newImage('sprites/ui/dice.png')
 sprites.ui.wrench = love.graphics.newImage('sprites/ui/wrench.png')
 sprites.ui.battery = love.graphics.newImage('sprites/ui/battery.png')
@@ -36,5 +37,6 @@ fonts.clickToBegin = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf"
 fonts.pickLevel = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 16*scale)
 fonts.pickLevel2 = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 12*scale)
 fonts.levelTitle = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 22*scale)
+fonts.tutorial = love.graphics.newFont("fonts/kenney-pixel/Kenney-Pixel.ttf", 10*scale)
 
 sounds = {}
