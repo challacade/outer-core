@@ -19,6 +19,14 @@ function spawnProjectile(type, x, y, dir, color)
         projectile.rot = math.atan2(projectile.dir.y, projectile.dir.x)
     end
 
+    if type == 'shock' then
+        projectile.radius = 30
+        projectile.speed = 0
+        projectile.timer = 0.3
+        projectile.power = 40
+        spawnBlast(x, y, 40, "white", 0.25)
+    end
+
     projectile.dir = projectile.dir * projectile.speed
 
     function projectile:update(dt)
@@ -32,6 +40,7 @@ function spawnProjectile(type, x, y, dir, color)
     end
 
     function projectile:draw()
+        if self.type == 'shock' then return end
         setColorFromString(self.color)
         love.graphics.draw(self.sprite, self.x, self.y, self.rot, nil, nil, self.sprite:getWidth()/2, self.sprite:getHeight()/2)
     end

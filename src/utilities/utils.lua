@@ -130,7 +130,7 @@ function setColorFromString(name, alph)
     elseif name == "red" then
         setColor(211, 48, 48, alpha)
     else
-        setWhite()
+        love.graphics.setColor(1, 1, 1, alpha)
     end
 end
 

@@ -138,6 +138,8 @@ function spawnUnit(id, tileX, tileY)
             self:aimedShot()
         elseif attackName == "around" then
             self:aroundShot()
+        elseif attackName == "shock" then
+            self:proximityShock()
         elseif attackName == "mal" then
             self:malfunction()
         end
@@ -178,6 +180,15 @@ function spawnUnit(id, tileX, tileY)
         spawnProjectile('laser', self.x, self.y, vector(-1, -1), self.color)
         spawnProjectile('laser', self.x, self.y, vector(0, -1), self.color)
         spawnProjectile('laser', self.x, self.y, vector(1, -1), self.color)
+
+        local destRot = self.rot + math.pi*2
+        flux.to(self, 0.35, {rot = destRot}):ease("quadinout"):oncomplete(function() self:setActive() end)
+    end
+
+    function unit:proximityShock()
+        self.state = 1.5
+
+        spawnProjectile('shock', self.x, self.y, vector(1, 0), self.color)
 
         local destRot = self.rot + math.pi*2
         flux.to(self, 0.35, {rot = destRot}):ease("quadinout"):oncomplete(function() self:setActive() end)
@@ -224,6 +235,7 @@ end
 function units:draw()
     for _,u in ipairs(units) do
         u:draw()
+        --love.graphics.circle('fill', u.x, u.y, 30)
     end
 end
 
