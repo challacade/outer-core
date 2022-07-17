@@ -9,7 +9,7 @@ manager.dead = false
 function manager:startLevel(num)
     gamestate = 1
     self.level = num
-    self.spawnTimer = 1
+    self.spawnTimer = 2
     self.spawnCount = 1
     self.state = 0
     self.dead = false

@@ -11,7 +11,6 @@ function spawnEnemy(type, tileX, tileY)
     enemy.maxHealth = 100
     enemy.health = 100
     enemy.radius = 6
-    enemy.dir = vector(0,1) * enemy.speed
 
     enemy.grid = anim8.newGrid(16, 16, enemy.sprite:getWidth(), enemy.sprite:getHeight())
     enemy.anim = anim8.newAnimation(enemy.grid('1-2', 1), 0.3)
@@ -19,6 +18,26 @@ function spawnEnemy(type, tileX, tileY)
     if type == 'skull' then
         enemy.sprite = sprites.characters.skull
     end
+
+    if type == 'fastSkull' then
+        enemy.sprite = sprites.characters.skull
+        enemy.speed = 60
+    end
+
+    if type == 'squid' then
+        enemy.sprite = sprites.characters.squid
+        enemy.maxHealth = 150
+        enemy.health = 150
+    end
+
+    if type == 'fastSquid' then
+        enemy.sprite = sprites.characters.squid
+        enemy.maxHealth = 150
+        enemy.health = 150
+        enemy.speed = 60
+    end
+
+    enemy.dir = vector(0,1) * enemy.speed
 
     function enemy:update(dt)
         if manager.dead ~= true then
