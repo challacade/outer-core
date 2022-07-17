@@ -14,4 +14,4 @@ coreData = {
 }
 
 myCores = {1, 2, 3, 4}
-myCoresEquipped = {nil, nil, nil, nil, nil, nil, nil, nil, nil}
+myCoresEquipped = {0, 0, 0, 0, 0, 0, 0, 0, 0}

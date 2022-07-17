@@ -17,6 +17,7 @@ function manager:startLevel(num)
     removeGuides()
     units:remove()
     removeAllEnemies()
+    myCoresEquipped = {0, 0, 0, 0, 0, 0, 0, 0, 0}
 
     if num == 1 then
         tutorial:reset()

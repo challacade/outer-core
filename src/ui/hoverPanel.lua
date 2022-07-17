@@ -8,7 +8,7 @@ hoverPanel.text = ""
 hoverPanel.core = nil
 
 function hoverPanel:update(dt)
-    if heldItemId > 0 then
+    if heldItemId > 0 or tutorial.active then
         self.visible = false
         return nil
     end

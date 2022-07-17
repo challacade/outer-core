@@ -70,10 +70,15 @@ function mouse:releaseLeft()
                 
                     -- Drop the item on this unit
                     if heldItemType == 1 then -- core
+                        for i,a in ipairs(units) do
+                            if a.coreId == heldItemId then
+                                a.coreId = 0
+                            end
+                        end
                         u.coreId = heldItemId
                         for i,c in ipairs(myCoresEquipped) do
                             if c == u.color then
-                                myCoresEquipped[i] = nil
+                                myCoresEquipped[i] = 0
                             end
                         end
                         myCoresEquipped[heldItemIndex] = u.color
