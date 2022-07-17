@@ -23,7 +23,7 @@ function spawnProjectile(type, x, y, dir, color)
         projectile.radius = 30
         projectile.speed = 0
         projectile.timer = 0.3
-        projectile.power = 40
+        projectile.power = 80
         spawnBlast(x, y, 40, "white", 0.25)
     end
 
