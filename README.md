@@ -1,5 +1,8 @@
 # Outer Core
-Outer Core is an open-source game created using Love2D. It was made for GMTK Game Jam 2022, which had the theme of 'Roll of the Dice'. A build for this game is available on itch.io at this URL:
+An open-source game created using Love2D. You can play it in your browser:
+https://challacade.com/games/outer-core
+
+This project was made for GMTK Game Jam 2022, which had the theme of 'Roll of the Dice'. The submission for this game is available on itch.io at this URL:
 https://kyleschaub.itch.io/outer-core
 
 To combat an alien invasion, your team of attack robots are equipped with various weapons. However, each bot is powered by a dice-like core which determines which attacks it may use, making its behavior a roll of the dice. Strategize the risk-vs-reward of your bot's equipped core, their position, and various upgrades to help get past each wave of incoming aliens!
