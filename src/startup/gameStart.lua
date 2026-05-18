@@ -10,7 +10,14 @@ function gameStart()
 
     -- 3 parameters: fullscreen, width, height
     -- width and height are ignored if fullscreen is true
-    setWindowSize(true, 1920, 1080)
+    if love.system.getOS() ~= "Web" then
+        setWindowSize(true, 1920, 1080)
+    else
+        -- Web (love.js): canvas size is fixed by conf.lua. getWidth/Height
+        -- returns 0 this early, so hardcode to avoid scale=0.
+        windowWidth = 1920
+        windowHeight = 1080
+    end
 
     -- The game's graphics scale up, this method finds the right ratio
     setScale()
