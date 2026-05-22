@@ -1,5 +1,6 @@
-# Outer Core
-An open-source game created using Love2D. You can play it in your browser:
+<img width="1891" height="532" alt="outer-core" src="https://github.com/user-attachments/assets/35e0d4af-aebf-4856-8343-a6ff96eba20c" />
+
+Outer Core is an open-source game created using Love2D. You can play it in your browser:
 https://challacade.com/games/outer-core
 
 This project was made for GMTK Game Jam 2022, which had the theme of 'Roll of the Dice'. The submission for this game is available on itch.io at this URL:
