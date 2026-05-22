@@ -26,13 +26,13 @@ local function enemyDestroyInit(particle, x, y, args)
 
     if args then
         if args == 1 then
-            particle.physics:setLinearVelocity(math.random(0, -120), math.random(-120, -160))
+            particle.physics:setLinearVelocity(math.random(-120, 0), math.random(-160, -120))
         elseif args == 2 then
-            particle.physics:setLinearVelocity(math.random(0, 120), math.random(-120, -160))
+            particle.physics:setLinearVelocity(math.random(0, 120), math.random(-160, -120))
         elseif args == 3 then
-            particle.physics:setLinearVelocity(math.random(0, -120), math.random(-60, -90))
+            particle.physics:setLinearVelocity(math.random(-120, 0), math.random(-90, -60))
         elseif args == 4 then
-            particle.physics:setLinearVelocity(math.random(0, 120), math.random(-60, -90))
+            particle.physics:setLinearVelocity(math.random(0, 120), math.random(-90, -60))
         end
     end
 
