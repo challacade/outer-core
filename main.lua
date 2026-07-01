@@ -32,7 +32,10 @@ end
 
 function love.keypressed(key)
     if key == 'escape' then
-        love.event.quit()
+        if love.system.getOS() ~= "Web" then
+            love.event.quit()
+        end
+        return
     end
 end
 
